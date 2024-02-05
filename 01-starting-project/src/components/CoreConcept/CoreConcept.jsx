@@ -1,6 +1,6 @@
 import "./CoreConcept.css";
 
-export default function CoreConcept({ concept }) {
+export default function CoreConcept(concept) {
   const { title, description, image } = concept;
   return (
     <li>
