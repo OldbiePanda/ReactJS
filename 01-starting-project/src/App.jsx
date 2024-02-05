@@ -2,8 +2,15 @@ import { CORE_CONCEPTS } from './data';
 import Header from './components/Header/Header';
 import CoreConcept from './components/CoreConcept/CoreConcept';
 import TabButton from './components/TabButton/TabButton';
+import { useState } from 'react';
 
 function App() {
+  const [tabContent, setTabContent] = useState('Please click a button');
+
+  function selectHandle(selectedButton) {
+    setTabContent(selectedButton);
+  }
+
   return (
     <div>
       <Header />
@@ -20,11 +27,12 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton>Components</TabButton>
-            <TabButton>JSX</TabButton>
-            <TabButton>Props</TabButton>
-            <TabButton>State</TabButton>
+            <TabButton onSelect={() => selectHandle('Components')}>Components</TabButton>
+            <TabButton onSelect={() => selectHandle('JSX')}>JSX</TabButton>
+            <TabButton onSelect={() => selectHandle('Props')}>Props</TabButton>
+            <TabButton onSelect={() => selectHandle('State')}>State</TabButton>
           </menu>
+          {tabContent}
         </section>
       </main>
     </div>
