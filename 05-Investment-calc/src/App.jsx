@@ -13,7 +13,19 @@ function App() {
 
     const handleFormChange = (data) => {
       const newResult = [...calculateInvestmentResults(data)];
-      setResult(newResult);
+
+      const initialInvestment = 
+        newResult[0].valueEndOfYear -
+        newResult[0].interest -
+        newResult[0].annualInvestment;
+
+      const updatedResult = newResult.map(row => ({
+        ...row, totalInterest:
+          row.valueEndOfYear - 
+          row.annualInvestment * row.year - 
+          initialInvestment
+      }));
+      setResult(updatedResult);
     }
 
   return (

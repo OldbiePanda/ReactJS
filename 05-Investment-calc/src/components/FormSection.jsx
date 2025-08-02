@@ -1,8 +1,8 @@
 const formData = {
-    initialInvestment: 0,
-    annualInvestment: 0,
-    expectedReturn: 0,
-    duration: 0
+    initialInvestment: 12000,
+    annualInvestment: 1000,
+    expectedReturn: 6,
+    duration: 12
 };
 
 export function FormSection({handleFormChange}) {
